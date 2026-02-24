@@ -82,34 +82,35 @@ export default function Home() {
     return (
         <div className="min-h-screen font-sans text-gray-800 bg-gray-50">
 
-            {/* --- НАВИГАЦИЯ (Sparki Style) --- */}
+            {/* --- НАВИГАЦИЯ (Full Width & Big Logo) --- */}
             <nav className="bg-white shadow-sm sticky top-0 z-50">
-                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-24">
+                {/* Промених max-w-[1440px] на w-full за да е по цялата ширина */}
+                <div className="w-full px-6 lg:px-12">
+                    {/* Увеличих височината на лентата на h-32 (128px), за да събере голямото лого */}
+                    <div className="flex justify-between items-center h-32">
 
-                        {/* 1. ЛОГО (Комбинирано: Картинка + Текст) */}
+                        {/* 1. ЛОГО (ОГРОМНО ВЛЯВО) */}
                         <div className="flex-shrink-0 flex items-center">
-                            <a href="#" className="flex items-center gap-3 group">
+                            <a href="#" className="flex items-center gap-5 group">
 
-                                {/* А. КАРТИНКА (Вашето лого) */}
-                                <div className="relative h-24 w-24 md:h-24 md:w-24"> {/* ТУК ПРОМЕНЯТЕ РАЗМЕРА */}
+                                {/* КАРТИНКА (Увеличена на h-28 w-28 = 112px) */}
+                                <div className="relative h-20 w-20 md:h-28 md:w-28 flex-shrink-0">
                                     <Image
-                                        src="/LogoFreshFists.png"
+                                        src="/LogoFresh.png"
                                         alt="Лого Свежите"
                                         fill
                                         className="object-contain group-hover:scale-105 transition-transform duration-300"
-                                        sizes="(max-width: 768px) 64px, 80px"
                                         priority
                                     />
                                 </div>
 
-                                {/* Б. ТЕКСТ (Запазваме шрифта) */}
+                                {/* ТЕКСТ (По-малък от картинката, за да изпъква логото) */}
                                 <div className="flex flex-col text-left">
-                   <span className="text-2xl font-black text-sky-700 tracking-tighter leading-none">
+                   <span className="text-2xl md:text-3xl font-black text-sky-700 tracking-tighter leading-none">
                       СВЕЖИТЕ<span className="text-orange-500">.</span>
                    </span>
-                                    <span className="text-[15px] font-bold text-gray-500 uppercase tracking-widest ml-0.5 group-hover:text-sky-600 transition">
-                      Професионално Почистване
+                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-0.5 mt-1">
+                      Професионално почистване
                    </span>
                                 </div>
 
@@ -117,16 +118,16 @@ export default function Home() {
                         </div>
 
                         {/* 2. МЕНЮ (Център) */}
-                        <div className="hidden lg:flex space-x-10 items-center">
+                        <div className="hidden 2xl:flex space-x-12 items-center">
                             {["Начало", "Услуги", "Пакети", "Контакти"].map((item) => (
-                                <a key={item} href={item === "Начало" ? "#" : `#${item.toLowerCase()}`} className="text-gray-600 hover:text-sky-600 font-bold text-sm uppercase tracking-wide transition relative group">
+                                <a key={item} href={item === "Начало" ? "#" : `#${item.toLowerCase()}`} className="text-gray-500 hover:text-sky-600 font-bold text-sm uppercase tracking-wide transition relative group">
                                     {item}
                                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-600 transition-all group-hover:w-full"></span>
                                 </a>
                             ))}
                         </div>
 
-                        {/* 3. ДЯСНО: ТЕЛЕФОН -> БУТОН -> РАБОТНО ВРЕМЕ */}
+                        {/* 3. ДЯСНО: КОНТАКТИ */}
                         <div className="hidden xl:flex items-center gap-8">
 
                             {/* Телефон */}
@@ -134,10 +135,10 @@ export default function Home() {
                                 <div className="w-11 h-11 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                                 </div>
-                                <span className="font-extrabold text-gray-700 text-xl group-hover:text-sky-600 transition tracking-tight">0888 123 456</span>
+                                <span className="font-extrabold text-gray-800 text-xl group-hover:text-sky-600 transition tracking-tight">0888 123 456</span>
                             </a>
 
-                            {/* Бутон (Син) - Променен на <a> за препратка */}
+                            {/* Бутон (препраща към формата) */}
                             <a
                                 href="#contact"
                                 className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-sky-100 hover:shadow-sky-200 transform hover:-translate-y-0.5 transition-all duration-200 uppercase tracking-wider text-center"
@@ -145,12 +146,19 @@ export default function Home() {
                                 Заяви оглед
                             </a>
 
+                            {/* Работно време */}
+                            <div className="flex flex-col border-l-2 border-gray-100 pl-8 h-14 justify-center">
+                                <span className="uppercase text-sm font-black text-sky-600 tracking-[0.15em] mb-1">Работно време</span>
+                                <span className="font-black text-sky-900 text-lg leading-tight whitespace-nowrap">
+                    Понеделник - Неделя <br/> 9:00ч - 18:00ч
+                </span>
+                            </div>
                         </div>
 
                         {/* Мобилно меню */}
                         <div className="xl:hidden flex items-center gap-4">
                             <button className="text-gray-600 hover:text-sky-600 focus:outline-none p-2">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </button>
                         </div>
 
