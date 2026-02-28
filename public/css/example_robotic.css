@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Jura;
+    src: url(./fonts/Jura-Medium.ttf);
+  }
+  
+  * {
+    font-family: Jura, sans-serif;
+  }

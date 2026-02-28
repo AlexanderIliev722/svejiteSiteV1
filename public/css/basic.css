@@ -1,0 +1,54 @@
+body{
+    overflow-x: hidden;
+    min-height: 100%;
+}
+main{
+  min-height: 80vh;
+}
+html{
+    height: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+.sec{
+  min-height: 90vh;
+}
+.sec-max{
+  max-height: 90vh;
+}
+
+/* nz shto se preebava kontrasta */
+.btn-dark{
+  color:#f8f9fa
+}
+/* Add CSS for fading effect */
+/* Basic container styles */
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+
+/* Transition for smooth opacity changes */
+.transition-opacity {
+	transition: opacity 1s ease-in-out;
+}

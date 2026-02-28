@@ -1,0 +1,70 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(./fonts/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+  font-family: coda;
+  src: url(./fonts/Coda-Regular.ttf);
+}
+
+@font-face {
+  font-family: logo;
+  src: url(./fonts/Logo2.ttf);
+}
+
+@font-face {
+  font-family: elegant;
+  src: url(./fonts/ElMessiri-Medium.ttf);
+}
+
+@font-face {
+  font-family: jura;
+  src: url(./fonts/Jura-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: belle;
+  src: url(./fonts/Bellefair-Regular.ttf);
+}
+
+@font-face {
+  font-family: ledger;
+  src: url(./fonts/Ledger-Regular.ttf);
+}
+@font-face {
+  font-family: russo;
+  src: url(./fonts/RussoOne-Regular.ttf);
+}
+
+.font-elegant {
+  font-family: elegant, sans-serif;
+}
+
+.font-coda {
+  font-family: coda, sans-serif;
+}
+
+.font-logo {
+  font-family: logo, sans-serif;
+}
+
+.font-jura {
+  font-family: jura, sans-serif;
+}
+
+.font-belle {
+  font-family: belle, sans-serif;
+}
+
+.font-ledger {
+  font-family: ledger, sans-serif;
+}
+
+.font-russo {
+  font-family: russo, sans-serif;
+}
+
+* {
+  font-family: myFirstFont, sans-serif;
+}
