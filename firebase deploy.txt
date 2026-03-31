@@ -1,0 +1,7 @@
+npm run
+
+firebase deploy
+
+firebase hosting:channel:deploy test
+
+

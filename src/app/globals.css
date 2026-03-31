@@ -24,16 +24,51 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-      color-scheme: light;
+    color-scheme: light;
   }
 }
 
 /* Chrome */
 @media (forced-colors: active) {
   :root {
-      color-scheme: light;
+    color-scheme: light;
   }
 }
-html{
-  width: 100svw!important;
+
+html {
+  width: 100svw !important;
+}
+
+/* Анимация за рисуване на плика */
+@keyframes draw-envelope {
+  0% {
+    stroke-dashoffset: 100;
+    /* Скрито */
+    opacity: 0.5;
+  }
+
+  40% {
+    stroke-dashoffset: 0;
+    /* Нарисувано */
+    opacity: 1;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+    /* Задържане */
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 100;
+    /* Изтриване (обратно) */
+    opacity: 0.5;
+  }
+}
+
+.animate-draw-envelope {
+  stroke-dasharray: 100;
+  /* Дължината на линията */
+  animation: draw-envelope 4s ease-in-out infinite;
+  /* Времетраене и безкраен цикъл */
 }

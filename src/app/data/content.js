@@ -2,44 +2,34 @@
 
 export const services = [
     {
-        title: "Основно почистване на домове",
+        title: "Почистване на домове",
         description: "Цялостно прахосмукиране, обезпрашаване на мебели, почистване на подове и дезинфекция на санитарни помещения.",
-        image: "https://images.unsplash.com/photo-1581578731117-104f2a417954?q=80&w=800&auto=format&fit=crop",
+        image: "/osnovno_house_cleaning.jpg",
     },
     {
-        title: "Абонаментно почистване на домове (Airbnb почистване)",
-        description: "Премахване на фин строителен прах, остатъци от латекс, лепила и фуги. Професионално измиване на дограма.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        title: "Основно почистване на офиси",
+        title: "Почистване на офиси",
         description: "Цялостно прахосмукиране, обезпрашаване на мебели, почистване на подове и дезинфекция на санитарни помещения.",
-        image: "https://images.unsplash.com/photo-1581578731117-104f2a417954?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        title: "Абонаментно почистване на офиси",
-        description: "Абонаментно метене и миене на стълбища, площадки, парапети и асансьори в жилищни сгради.",
-        image: "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        title: "Почистване след ремонт",
-        description: "Редовна грижа за вашия дом или офис по график. Винаги чисто и уютно, без да губите време.",
-        image: "https://images.unsplash.com/photo-1527512860163-a20d43a75823?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        title: "Почистване на прозорци",
-        description: "Двустранно измиване на стъкла, дограми и комарници. Кристална чистота и повече светлина.",
-        image: "https://images.unsplash.com/photo-1504197885-609741699992?q=80&w=800&auto=format&fit=crop",
+        image: "/office_cleaning.jpg",
     },
     {
         title: "Почистване на входове",
         description: "Машинно пране на дивани, фотьойли, столове и матраци. Премахване на петна и акари.",
-        image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=800&auto=format&fit=crop",
+        image: "/cleaning_stairs.jpg",
+    },
+    {
+        title: "Почистване след ремонт",
+        description: "Редовна грижа за вашия дом или офис по график. Винаги чисто и уютно, без да губите време.",
+        image: "/renovation_cleaning2.jpg",
+    },
+    {
+        title: "Почистване на прозорци",
+        description: "Двустранно измиване на стъкла, дограми и комарници. Кристална чистота и повече светлина.",
+        image: "/windows_cleaning.png",
     },
     {
         title: "Машинно изпиране на килими и мокети",
         description: "Абонаментно метене и миене на стълбища, площадки, парапети и асансьори в жилищни сгради.",
-        image: "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?q=80&w=800&auto=format&fit=crop",
+        image: "/carpet_cleaning.jpg",
     },
 ];
 

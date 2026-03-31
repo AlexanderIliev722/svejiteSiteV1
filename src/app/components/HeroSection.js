@@ -12,7 +12,7 @@ export default function HeroSection() {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-white/60"></div>
+                <div className="absolute inset-0 bg-white/70"></div>
             </div>
 
             {/* 2. СЪДЪРЖАНИЕ */}

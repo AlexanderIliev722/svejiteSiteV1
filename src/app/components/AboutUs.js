@@ -8,7 +8,7 @@ export default function AboutUs() {
 
                     {/* Текстова част */}
                     <div className="lg:w-1/2 text-center lg:text-left">
-                        <span className="text-sky-600 font-bold tracking-widest uppercase text-xs">За нас</span>
+                        <span className="text-sky-600 font-bold tracking-widest uppercase text-[30px]">За нас</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 tracking-tight">
                             Кои сме ние и защо да изберете нас?
                         </h2>
