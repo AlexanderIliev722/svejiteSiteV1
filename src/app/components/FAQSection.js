@@ -36,10 +36,12 @@ export default function FAQSection() {
     const [activeIndex, setActiveIndex] = useState(0); // Първият въпрос е отворен по подразбиране
 
     const toggleFAQ = (index) => {
-        // Ако кликнеш на вече отворения, не прави нищо (или можеш да го направиш да се затваря)
-        // Тук го правим да стои отворен, за да има винаги снимка отдясно.
-        setActiveIndex(index);
+        // Ако кликнеш на вече отворения — затвори го
+        setActiveIndex(activeIndex === index ? null : index);
     };
+
+    // Индексът за снимката — показваме последно отворения, или първия ако всичко е затворено
+    const imageIndex = activeIndex !== null ? activeIndex : 0;
 
     return (
         <section id="faq" className="py-24 bg-white">
@@ -100,7 +102,7 @@ export default function FAQSection() {
                 или просто сменяме src.
             */}
                         <Image
-                            src={faqs[activeIndex].image}
+                            src={faqs[imageIndex].image}
                             alt="Илюстрация към въпроса"
                             fill
                             className="object-cover transition-opacity duration-500"
@@ -109,15 +111,15 @@ export default function FAQSection() {
                         />
 
                         {/* Декоративен слой отгоре за дълбочина */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 
-                        {/* Текст върху снимката (опционално) */}
-                        <div className="absolute bottom-6 left-6 right-6 text-white">
-                            <p className="font-bold text-lg bg-orange-500 inline-block px-3 py-1 rounded mb-2 shadow-sm">
+                        {/* Текст върху снимката */}
+                        <div className="absolute bottom-4 left-5 right-5 text-white">
+                            <p className="font-bold text-base bg-orange-500 inline-block px-3 py-1 rounded mb-2 shadow-sm">
                                 Свежите съветват:
                             </p>
-                            <p className="text-sm opacity-90">
-                                {faqs[activeIndex].answer.substring(0, 80)}...
+                            <p className="text-sm leading-relaxed opacity-95">
+                                {faqs[imageIndex].answer}
                             </p>
                         </div>
                     </div>

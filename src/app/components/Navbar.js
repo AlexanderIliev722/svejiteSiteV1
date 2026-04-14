@@ -29,6 +29,12 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isPhoneDropdownOpen, setIsPhoneDropdownOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [activePhone, setActivePhone] = useState(0);
+
+    const phones = [
+        { number: "0898811734", display: "089 881 1734" },
+        { number: "0876899405", display: "087 689 9405" }
+    ];
 
     useEffect(() => {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -68,8 +74,8 @@ export default function Navbar() {
                             <div className="flex-shrink-0 flex items-center min-w-0">
                                 <a href="#" className="flex items-center gap-2 sm:gap-3 group">
                                     <div className="relative h-20 w-20 min-[680px]:h-24 min-[680px]:w-24 min-[860px]:h-28 min-[860px]:w-28 2xl:h-32 2xl:w-32 flex-shrink-0">
-                                        <Image src="/LogoFreshFistsTransparent.png" alt="Лого Свежите" fill
-                                            className="object-contain group-hover:scale-105 transition-transform duration-300" priority />
+                                        <Image src={isDarkMode ? "/LogoFreshFistsTransparent0_Dark.png" : "/LogoFreshFistsTransparent0.png"} alt="Лого Свежите" fill
+                                            className={`object-contain group-hover:scale-105 transition-transform duration-300 ${isDarkMode ? 'p-4' : ''}`} priority />
                                     </div>
                                     <div className="flex flex-col text-left min-w-0">
                                         <span className="text-xl min-[680px]:text-2xl min-[860px]:text-3xl 2xl:text-3xl font-black text-sky-700 dark:text-white tracking-tighter leading-none group-hover:scale-105 transition-transform duration-300">
@@ -96,12 +102,14 @@ export default function Navbar() {
 
                             {/* DESKTOP КОНТАКТИ - xl+ (1280px+) */}
                             <div className="hidden xl:flex items-center gap-3 2xl:gap-4 flex-shrink-0">
-                                <a href="tel:0898811734" className="flex items-center gap-1.5 group">
-                                    <div className="w-8 h-8 min-[1400px]:w-10 h-10 rounded-full bg-sky-50 dark:bg-slate-800 flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                                <div className="flex items-center gap-1.5">
+                                    <button onClick={() => setActivePhone(prev => (prev + 1) % phones.length)} className="w-8 h-8 min-[1400px]:w-10 min-[1400px]:h-10 rounded-full bg-sky-50 dark:bg-slate-800 flex items-center justify-center text-sky-600 dark:text-sky-400 hover:bg-sky-500 hover:text-white transition-all duration-300 cursor-pointer outline-none" title="Смени номера">
                                         <PhoneIcon />
-                                    </div>
-                                    <span className="font-extrabold text-gray-700 dark:text-white text-[13px] min-[1400px]:text-[15px] 2xl:text-[18px] group-hover:text-sky-600 dark:group-hover:text-sky-400 transition tracking-tight whitespace-nowrap">089 881 1734</span>
-                                </a>
+                                    </button>
+                                    <a href={`tel:${phones[activePhone].number}`} className="group">
+                                        <span className="font-extrabold text-gray-700 dark:text-white text-[13px] min-[1400px]:text-[15px] 2xl:text-[18px] group-hover:text-sky-600 dark:group-hover:text-sky-400 transition tracking-tight whitespace-nowrap">{phones[activePhone].display}</span>
+                                    </a>
+                                </div>
 
                                 <a href="mailto:svejiteofficial@gmail.com" className="hidden xl:flex items-center gap-1.5 group">
                                     <div className="w-8 h-8 min-[1400px]:w-10 h-10 rounded-full bg-sky-50 dark:bg-slate-800 flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
@@ -154,12 +162,14 @@ export default function Navbar() {
                                     </div>
 
                                     {/* Телефон директен линк с текст (ОТ 950px нагоре) */}
-                                    <a href="tel:0898811734" className="hidden min-[950px]:flex items-center gap-1.5 group">
-                                        <div className="w-8 h-8 rounded-full bg-sky-50 dark:bg-slate-800 flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                                    <div className="hidden min-[950px]:flex items-center gap-1.5">
+                                        <button onClick={() => setActivePhone(prev => (prev + 1) % phones.length)} className="w-8 h-8 rounded-full bg-sky-50 dark:bg-slate-800 flex items-center justify-center text-sky-600 dark:text-sky-400 hover:bg-sky-500 hover:text-white transition-all duration-300 cursor-pointer outline-none" title="Смени номера">
                                             <PhoneIcon />
-                                        </div>
-                                        <span className="font-extrabold text-gray-700 dark:text-white text-base group-hover:text-sky-600 dark:group-hover:text-sky-400 transition tracking-tight whitespace-nowrap">089 881 1734</span>
-                                    </a>
+                                        </button>
+                                        <a href={`tel:${phones[activePhone].number}`} className="group">
+                                            <span className="font-extrabold text-gray-700 dark:text-white text-base group-hover:text-sky-600 dark:group-hover:text-sky-400 transition tracking-tight whitespace-nowrap">{phones[activePhone].display}</span>
+                                        </a>
+                                    </div>
 
                                     {/* Имейл - иконка от 414px, текст от xs(485) до sm(640) */}
                                     <a href="mailto:svejiteofficial@gmail.com" className="flex items-center gap-1.5 group" title="svejiteofficial@gmail.com">
