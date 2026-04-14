@@ -33,18 +33,15 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-    const [activeIndex, setActiveIndex] = useState(0); // Първият въпрос е отворен по подразбиране
+    const [activeIndex, setActiveIndex] = useState(null); // Нищо не е отворено по подразбиране
 
     const toggleFAQ = (index) => {
         // Ако кликнеш на вече отворения — затвори го
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    // Индексът за снимката — показваме последно отворения, или първия ако всичко е затворено
-    const imageIndex = activeIndex !== null ? activeIndex : 0;
-
     return (
-        <section id="faq" className="py-24 bg-white">
+        <section id="faq" className="py-24 bg-sky-100 dark:bg-sky-100">
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* ЗАГЛАВИЕ */}
@@ -64,8 +61,8 @@ export default function FAQSection() {
                                 key={index}
                                 onClick={() => toggleFAQ(index)}
                                 className={`border rounded-2xl transition-all duration-300 cursor-pointer overflow-hidden ${activeIndex === index
-                                        ? "border-sky-500 shadow-lg bg-sky-50/30" // Активен стил
-                                        : "border-gray-200 hover:border-sky-300 bg-white" // Неактивен стил
+                                    ? "border-sky-500 shadow-lg bg-white dark:bg-white" // Активен стил
+                                    : "border-gray-200 hover:border-sky-300 bg-white dark:bg-white" // Неактивен стил
                                     }`}
                             >
                                 {/* Заглавие на въпроса */}
@@ -97,31 +94,30 @@ export default function FAQSection() {
 
                     {/* ДЯСНА КОЛОНА: ДИНАМИЧНА СНИМКА */}
                     <div className="relative h-[400px] lg:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                        {/* Използваме key={activeIndex}, за да накараме React да пререндерира 
-                компонента Image при смяна, което може да добави лек ефект на появяване,
-                или просто сменяме src.
-            */}
                         <Image
-                            src={faqs[imageIndex].image}
-                            alt="Илюстрация към въпроса"
+                            key={activeIndex !== null ? activeIndex : 'default'}
+                            src={activeIndex !== null ? faqs[activeIndex].image : "/tips2.jpg"}
+                            alt={activeIndex !== null ? "Илюстрация към въпроса" : "Полезни съвети"}
                             fill
-                            className="object-cover transition-opacity duration-500"
+                            className={`transition-opacity duration-500 ${activeIndex !== null ? 'object-cover' : 'object-contain bg-white'}`}
                             sizes="(max-width: 768px) 100vw, 50vw"
-                            priority // Зареждаме с приоритет, за да няма мигане
+                            priority
                         />
 
-                        {/* Декоративен слой отгоре за дълбочина */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-
-                        {/* Текст върху снимката */}
-                        <div className="absolute bottom-4 left-5 right-5 text-white">
-                            <p className="font-bold text-base bg-orange-500 inline-block px-3 py-1 rounded mb-2 shadow-sm">
-                                Свежите съветват:
-                            </p>
-                            <p className="text-sm leading-relaxed opacity-95">
-                                {faqs[imageIndex].answer}
-                            </p>
-                        </div>
+                        {/* Декоративен слой + текст — само когато има отворен въпрос */}
+                        {activeIndex !== null && (
+                            <>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                                <div className="absolute bottom-4 left-5 right-5 text-white">
+                                    <p className="font-bold text-base bg-orange-500 inline-block px-3 py-1 rounded mb-2 shadow-sm">
+                                        Свежите съветват:
+                                    </p>
+                                    <p className="text-sm leading-relaxed opacity-95">
+                                        {faqs[activeIndex].answer}
+                                    </p>
+                                </div>
+                            </>
+                        )}
                     </div>
 
                 </div>
