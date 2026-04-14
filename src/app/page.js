@@ -36,7 +36,7 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen font-sans text-gray-800 bg-gray-50 overflow-x-hidden">
+        <div className="min-h-screen font-sans text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-slate-900 overflow-x-hidden transition-colors duration-300">
             <Navbar />
 
             <main>

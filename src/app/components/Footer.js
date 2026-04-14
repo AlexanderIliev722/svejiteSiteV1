@@ -13,10 +13,10 @@ export default function Footer() {
           <div className="flex flex-col items-start space-y-6 lg:w-1/5">
             <a href="#" className="group">
               <div className="flex flex-col text-left">
-                <span className="text-4xl font-black text-white tracking-tighter uppercase group-hover:text-sky-400 transition-colors duration-300">
+                <span className="text-4xl font-black text-white dark:text-white tracking-tighter uppercase group-hover:text-sky-400 transition-colors duration-300">
                   СВЕЖИТЕ<span className="text-orange-500">.</span>
                 </span>
-                <span className="text-[16px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                <span className="text-[16px] font-bold text-gray-300 uppercase tracking-widest mt-1">
                   Професионално почистване
                 </span>
               </div>
@@ -127,13 +127,13 @@ export default function Footer() {
             </h3>
 
             <div className="flex flex-col space-y-1">
-              <span className="text-[24px] font-bold text-gray-500 uppercase tracking-widest">
+              <span className="text-[24px] font-bold text-gray-300 uppercase tracking-widest">
                 Свържете се с нас
               </span>
               <a href="tel:0898811734" className="text-2xl font-black text-white hover:text-sky-500 transition-colors duration-300">
                 089 881 1734
               </a>
-              <span className="text-[16px] text-gray-500 mt-2">
+              <span className="text-[16px] text-gray-300 mt-2">
                 Пон - Нед: 09:00 - 20:00
               </span>
             </div>

@@ -1,7 +1,7 @@
-npm run
+npm run dev
 
 firebase deploy
 
 firebase hosting:channel:deploy test
 
-
+dig svejite.eu NS +short
