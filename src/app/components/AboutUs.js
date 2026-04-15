@@ -22,11 +22,11 @@ export default function AboutUs() {
 
                         <div className="grid grid-cols-2 gap-6 mt-10">
                             <div className="border-l-4 border-sky-500 pl-4">
-                                <span className="block text-4xl font-black text-sky-900 mb-1">100+</span>
+                                <span className="block text-4xl font-black text-sky-900 mb-1">30+</span>
                                 <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Доволни клиента</span>
                             </div>
                             <div className="border-l-4 border-orange-500 pl-4">
-                                <span className="block text-4xl font-black text-sky-900 mb-1">5+</span>
+                                <span className="block text-4xl font-black text-sky-900 mb-1">2+</span>
                                 <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Години опит</span>
                             </div>
                         </div>
