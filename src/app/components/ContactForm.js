@@ -162,7 +162,7 @@ export default function ContactForm() {
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Бърза <span className="text-sky-600 dark:text-sky-400">заявка</span> за оглед</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Бърза <span className="text-sky-600 dark:text-sky-400">заявка</span> за <span className="text-sky-600 dark:text-sky-400">безплатен</span> оглед</h3>
                                 </div>
                             </div>
                             <p className="text-gray-400 dark:text-gray-500 text-sm mb-8 flex items-center gap-1.5 ml-[52px]">
@@ -189,7 +189,7 @@ export default function ContactForm() {
                                         {["Основно", "След ремонт", "Абонамент", "Прозорци", "Мека мебел", "Офиси"].map((item) => (
                                             <label key={item} className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 cursor-pointer hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-slate-600 transition-all duration-200 has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 dark:has-[:checked]:bg-sky-900/30 group">
                                                 <input type="checkbox" className="sr-only peer" />
-                                                <div className="w-5 h-5 rounded-md border-2 border-gray-300 dark:border-slate-500 flex items-center justify-center peer-checked:bg-sky-500 peer-checked:border-sky-500 transition-all duration-200 flex-shrink-0">
+                                                <div className="w-5 h-5 rounded-md border-2 border-gray-300 dark:border-slate-500 flex items-center justify-center peer-checked:bg-sky-500 peer-checked:border-sky-500 transition-all duration-200 flex-shrink-0 text-transparent peer-checked:text-white">
                                                     <CheckIcon />
                                                 </div>
                                                 <span className="text-gray-600 dark:text-gray-300 text-sm font-medium peer-checked:text-sky-700 dark:peer-checked:text-sky-300 transition-colors">{item}</span>
@@ -198,10 +198,44 @@ export default function ContactForm() {
                                     </div>
                                 </div>
 
+                                {/* Квадратура */}
+                                <div>
+                                    <p className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3">Квадратура:</p>
+                                    <div className="grid grid-cols-3 gap-2.5">
+                                        {["до 60 кв.м", "до 80 кв.м", "до 100 кв.м"].map((item) => (
+                                            <label key={item} className="group/radio flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 cursor-pointer hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-slate-600 transition-all duration-200 has-[:checked]:border-sky-500 has-[:checked]:bg-sky-50 dark:has-[:checked]:bg-sky-900/30 text-center">
+                                                <input type="radio" name="area" className="sr-only" />
+                                                <div className="w-4 h-4 rounded-full border-2 border-gray-300 dark:border-slate-500 group-has-[:checked]/radio:border-sky-500 transition-all duration-200 flex-shrink-0 flex items-center justify-center">
+                                                    <div className="w-2 h-2 rounded-full bg-sky-500 scale-0 group-has-[:checked]/radio:scale-100 transition-transform duration-200"></div>
+                                                </div>
+                                                <span className="text-gray-600 dark:text-gray-300 text-sm font-medium group-has-[:checked]/radio:text-sky-700 dark:group-has-[:checked]/radio:text-sky-300 transition-colors">{item}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Адрес и Етаж */}
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                                    <div className="relative group md:col-span-2">
+                                        <input type="text" placeholder=" " id="contact-address" className="peer w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white focus:outline-none focus:border-sky-500 dark:focus:border-sky-400 transition-all duration-300" />
+                                        <label htmlFor="contact-address" className="absolute left-5 top-4 text-gray-400 dark:text-gray-500 text-sm transition-all duration-200 peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-sky-600 dark:peer-focus:text-sky-400 peer-focus:bg-white dark:peer-focus:bg-slate-700 peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white dark:peer-[:not(:placeholder-shown)]:bg-slate-700 peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">Адрес</label>
+                                    </div>
+                                    <div className="relative group">
+                                        <input type="text" placeholder=" " id="contact-floor" className="peer w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white focus:outline-none focus:border-sky-500 dark:focus:border-sky-400 transition-all duration-300" />
+                                        <label htmlFor="contact-floor" className="absolute left-5 top-4 text-gray-400 dark:text-gray-500 text-sm transition-all duration-200 peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-sky-600 dark:peer-focus:text-sky-400 peer-focus:bg-white dark:peer-focus:bg-slate-700 peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white dark:peer-[:not(:placeholder-shown)]:bg-slate-700 peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">Етаж</label>
+                                    </div>
+                                </div>
+
+                                {/* Предпочитана дата */}
+                                <div className="relative group">
+                                    <input type="date" id="contact-date" className="peer w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white focus:outline-none focus:border-sky-500 dark:focus:border-sky-400 transition-all duration-300" />
+                                    <label htmlFor="contact-date" className="absolute left-5 -top-2.5 left-3 text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-slate-700 px-2 pointer-events-none">Предпочитана дата за оглед</label>
+                                </div>
+
                                 {/* Текстово поле */}
                                 <div className="relative">
-                                    <textarea rows="4" placeholder=" " id="contact-message" className="peer w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white focus:outline-none focus:border-sky-500 dark:focus:border-sky-400 transition-all duration-300 resize-none"></textarea>
-                                    <label htmlFor="contact-message" className="absolute left-5 top-4 text-gray-400 dark:text-gray-500 text-sm transition-all duration-200 peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-sky-600 dark:peer-focus:text-sky-400 peer-focus:bg-white dark:peer-focus:bg-slate-700 peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white dark:peer-[:not(:placeholder-shown)]:bg-slate-700 peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">Допълнителна информация (адрес, квадратура...)</label>
+                                    <textarea rows="3" placeholder=" " id="contact-message" className="peer w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-700 border-2 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white focus:outline-none focus:border-sky-500 dark:focus:border-sky-400 transition-all duration-300 resize-none"></textarea>
+                                    <label htmlFor="contact-message" className="absolute left-5 top-4 text-gray-400 dark:text-gray-500 text-sm transition-all duration-200 peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-sky-600 dark:peer-focus:text-sky-400 peer-focus:bg-white dark:peer-focus:bg-slate-700 peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white dark:peer-[:not(:placeholder-shown)]:bg-slate-700 peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">Допълнителна информация</label>
                                 </div>
 
                                 {/* Бутон */}
